@@ -1,0 +1,41 @@
+<body>
+<h2> 注册审核 </h2>
+<h3> 申请列表 </h3>
+<div id="container" style="width:380px">
+    <div style="font-family:verdana;padding:40px;border-radius:40px;border:5px solid #000000;">
+<table>
+    <!-- 名称 -->
+    <thead>
+    <tr>
+        <th >用户名</th>
+        <th >密码</th>
+        <th >姓名</th>
+        <th >性别</th>
+        <th >生日</th>
+        <th >联系方式</th>
+        <th >所属单位</th>
+    </tr>
+
+    </thead>
+    <!-- 动态插入内容 -->
+    <tbody>
+    <tr th:each="p,iterStat : ${Regist}" th:class="${iterStat.odd}? 'odd'">
+        <!--  <td style="width:4em"><input type="checkbox" name="checkbox" th:value="$(p.p_id)"></td>-->
+        <td th:text=" ${p.getUsername()}"></td>
+        <!--  <td><a th:href="@{/prodetail(p_id=${p.p_id})}"th:text=" ${p.getName()}"></a></td>> -->
+        <td th:text=" ${p.getPassword()}"></td>
+        <td th:text=" ${p.getName()}"></td>
+        <td th:text=" ${p.getSex()}"></td>
+        <td th:text=" ${p.getBirthday()}"></td>
+        <td th:text=" ${p.getNumber()}"></td>
+        <td th:text=" ${p.getUnits()}"></td>
+        </td>
+    </tr>
+    </tbody></table>
+
+        &nbsp&nbsp&nbsp <button><a href="/verify2">通过</a></button>
+        &nbsp&nbsp&nbsp <button><a href="/backtomain">返回</a></button>
+
+</div></div>
+</body>
+</html>

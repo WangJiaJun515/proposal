@@ -1,0 +1,23 @@
+
+SET NAMES utf8;
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE IF EXISTS `Member`;
+CREATE TABLE `Member` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`username` varchar(100)  CHARACTER SET utf8 DEFAULT 'admin0' COMMENT '用户名',
+`password` varchar(100)  CHARACTER SET utf8 DEFAULT 'admin0' COMMENT '密码',
+`name` varchar(100)   CHARACTER SET utf8 DEFAULT  'none' COMMENT '姓名',
+`sex` varchar(100)   CHARACTER SET  utf8 DEFAULT 'none' COMMENT '性别',
+`birthday` varchar(100)  CHARACTER SET utf8 DEFAULT 'none' COMMENT '出生日期',
+`number` varchar(100)  CHARACTER SET utf8 DEFAULT 'none' COMMENT  '联系方式',
+`units` varchar(100)  CHARACTER SET utf8 DEFAULT 'none' COMMENT '所属',
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COMMENT='用户表';
+
+
+
+BEGIN;
+INSERT INTO `Member` VALUES ('1', 'wangjiajun', 'wangjiajun', '汪嘉珺','男','19980515','18500058998','bjut');
+COMMIT;
+
+SET FOREIGN_KEY_CHECKS = 1;

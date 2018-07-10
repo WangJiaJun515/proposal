@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>小学期信息维护界面lpy</title>
+
+</head>
+<body>
+
+<div id="containe" style="width:550px">
+
+    <div id="header" style="background-color:#66CCFF;clear:both;text-align:center;">
+        <h3>能力规范文稿管理系统</h3></div>
+    <div id="nextheader" style="background-color:#66CCFF;clear:both;text-align:left-side;">
+        <h4>信息维护</h4></div>
+        <div style="font-family:verdana;padding:40px;border-radius:40px;border:5px solid #000000;">
+    <table>
+        <!-- 名称 -->
+        <thead>
+        <tr>
+            <th >用户名</th>
+            <th >密码</th>
+            <th >姓名</th>
+            <th >性别</th>
+            <th >出生日期</th>
+            <th >电话</th>
+            <th >所属</th>
+        </tr>
+
+        </thead>
+        <!-- 动态插入内容 -->
+        <tbody>
+        <tr th:each="m,iterStat : ${thismember}" th:class="${iterStat.odd}? 'odd'">
+            <td th:text=" ${m.getUsername()}"></td>
+            　　<td th:text=" ${m.getPassword()}"></td>
+            　　<td th:text=" ${m.getName()}"></td>
+                <td th:text=" ${m.getSex()}"></td>
+            <td th:text=" ${m.getBirthday()}"></td>
+            <td th:text=" ${m.getNumber()}"></td>
+            <td th:text=" ${m.getUnits()}"></td>
+            </td>
+        </tr>
+        </tbody>
+        <form id="iform" th:action="@{/submit1}" th:method="get" th:object="${member}">
+            <br/><label>用户名（无需更改）  </label>
+            <input type="text" th:field="*{username}"/>
+            <br/><label>更改后的密码  </label>
+            <input type="text" th:field="*{password}"/>
+            <br/><label>更改后的姓名  </label>
+            <input type="text" th:field="*{name}"/>
+            <br/><label>更改后的性别  </label>
+            <input type="text" th:field="*{sex}"/>
+            <br/><label>更改后的生日  </label>
+            <input type="text" th:field="*{birthday}"/>
+            <br/><label>更改后的联系方式  </label>
+            <input type="text" th:field="*{number}"/>
+            <br/><label>更改后的所属单位  </label>
+            <input type="text" th:field="*{units}"/><br/>
+        </form>
+    </table>
+            <div class="button-container">
+            &nbsp&nbsp <input class="button" type="submit" value="提交" style="marqin-right:40px"/>&nbsp&nbsp
+    &nbsp&nbsp <button><a href="/backtomain">返回</a></button>
+            </div></div>
+</div>
+</body>
+</html>

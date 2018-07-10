@@ -1,0 +1,43 @@
+<body>
+<h2> 提案查询 </h2>
+<div id="container" style="width:500px">
+    <div style="font-family:verdana;padding:40px;border-radius:40px;border:5px solid #000000;">
+<h3> 提案 </h3>
+<table>
+    <!-- 名称 -->
+    <thead>
+    <tr>
+        <th >id</th>
+        <th >作者</th>
+        <th >标题</th>
+        <th >内容</th>
+        <th >评论</th>
+    </tr>
+
+    </thead>
+    <!-- 动态插入内容 -->
+    <tbody>
+    <tr th:each="p,iterStat : ${proposalOne}" th:class="${iterStat.odd}? 'odd'">
+      <!--  <td style="width:4em"><input type="checkbox" name="checkbox" th:value="$(p.p_id)"></td>-->
+        <td th:text=" ${p.getId()}"></td>
+      <!--  <td><a th:href="@{/prodetail(p_id=${p.p_id})}"th:text=" ${p.getName()}"></a></td>> -->
+        <td th:text=" ${p.getWriter()}"></td>
+        <td th:text=" ${p.getTopic()}"></td>
+        <td th:text=" ${p.getContent()}"></td>
+        <td th:text=" ${p.getComment()}"></td>
+        </td>
+    </tr>
+    </tbody>
+    </table>
+    <form id="iform" th:action="@{/search1}" th:method="get" th:object="${proposal}">
+        <div class="button-container">
+            <label>评论 </label>
+    <input type="text" th:field="*{comment}"/>
+
+    <input class="button" type="submit" value="提交" style="marqin-right:40px"/>
+        &nbsp&nbsp <button><a href="/backtomain">返回</a></button>
+    </div></form>
+
+    </div></div>
+</body>
+</html>

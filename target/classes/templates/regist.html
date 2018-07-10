@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>小学期注册界面lpy</title>
+</head>
+<body>
+<div  style="width:320px">
+    <div  style="background-color:#66CCFF;">
+        <h2 style="margin-bottom:0;">能力规范文稿管理系统</h2></div></div>
+
+        <div  style="width:250px">
+            <div  style="background-color:#66CCFF;">
+                <h4 style="margin-bottom:0;">入会申请</h4></div></div><br/><br/>
+<div id="container" style="width:380px">
+<div style="font-family:verdana;padding:40px;border-radius:40px;border:5px solid #000000;">
+            <form id="iform" th:action="@{/submit}" th:method="get" th:object="${regist}">
+                <br/>&nbsp&nbsp<label>用户名  </label>
+                <input type="text" th:field="*{username}"/>
+                <br/>&nbsp&nbsp<label>密码  </label>
+                <input type="text" th:field="*{password}"/>
+                <br/>&nbsp&nbsp<label>姓名  </label>
+                <input type="text" th:field="*{name}"/>
+                <br/>&nbsp&nbsp<label>性别  </label>
+                <input type="text" th:field="*{sex}"/>
+                <br/>&nbsp&nbsp<label>生日  </label>
+                <input type="text" th:field="*{birthday}"/>
+                <br/>&nbsp&nbsp<label>联系方式  </label>
+                <input type="text" th:field="*{number}"/>
+                <br/>&nbsp&nbsp<label>所属单位  </label>
+                <input type="text" th:field="*{units}"/><br/>
+                <div class="button-container">
+                    &nbsp&nbsp <input class="button" type="submit" value="提交" style="marqin-right:40px"/>&nbsp&nbsp
+                <button><a href="/back">返回</a></button>&nbsp&nbsp
+                <button type='reset'/>清空</button>
+                </div>
+        </form>
+</div>
+</div>
+
+</body>
+</html>
